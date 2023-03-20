@@ -21,4 +21,4 @@ The project includes using Power Query and Python to process and clean data from
 [![PBIDesktop-9-WUN85-YDm-A.png](https://i.postimg.cc/T3HMXzzF/PBIDesktop-9-WUN85-YDm-A.png)](https://postimg.cc/757Q3WYn)
 ##### In this graph we see a slight linear relationship, so the next step is to use a python script to find correlations in the dataset
 [![PBIDesktop-z1q-Ezscqzm.png](https://i.postimg.cc/7b8hXCV1/PBIDesktop-z1q-Ezscqzm.png)](https://postimg.cc/FkphHHw1)
-##### 
+##### As is noticeable in this heat map, there is a correlation between price, trip distance, and increased fare. There is no correlation with weather conditions.
