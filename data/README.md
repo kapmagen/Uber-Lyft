@@ -2,9 +2,9 @@
 ____
 ## [Download data](https://hb.bizmrg.com/productstar_py-bi-bd/Power%20BI/8.%20%D0%98%D1%82%D0%BE%D0%B3%D0%BE%D0%B2%D1%8B%D0%B9%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82/rideshare_kaggle.csv)
 ____
-### df.shape
+#### df.shape
 (112704, 57)
-### df.info()
+#### df.info()
 ```
 RangeIndex: 112704 entries, 0 to 112703
 Data columns (total 57 columns):
@@ -69,7 +69,7 @@ Data columns (total 57 columns):
  56  apparentTemperatureMaxTime   112703 non-null  float64
 dtypes: float64(33), int64(13), object(11)
 ```
-### Columns used
+#### Columns used
 1. cab_type
 2. cloudCover
 3. datetime
@@ -88,3 +88,25 @@ dtypes: float64(33), int64(13), object(11)
 16. temperature
 17. visibility
 18. windSpeed
+
+
+### Data preprocessing
+
+I will use power query to process the data, even though I checked the dataset structure in pandas beforehand. 
+
+1. Delete unnecessary columns by selecting the desired columns and using the "delete other columns" command.
+2. Create tables of directories for columns source, destination, cab_type and name. I do it to reduce the size of the file and convenience of work. 
+    + Create columns with "_id" endings in the root dataset using the python script.
+    > Example: dataset['source_id'] = dataset['source'].apply(lambda x: ''.join([str(ord(elem)) for elem in x[:10]]))
+3. Separate the datetime column into date and time by separator
+4. Check that the data type of the column data everywhere matches the contents
+5. Сreate the necessary number of links to the dataset and create dictionaries
+6. Сreate another link and delete columns source, destination, cab_type, name. I do this because the data already exists in the dictionaries
+7. Create a separate calendar table that contains:
+     + Dates from November 1 to December 31, 2018
+     + Day of the week number
+
+### Data modeling
+
+1. In the data model, I connected the reference tables and the calendar table to the main dataset
+2. Create a separate table for the measures
